@@ -122,6 +122,7 @@ h2 { margin-bottom: 0; font-size: clamp(2.5rem, 4.6vw, 4.4rem); font-weight: 900
 .contact-section { padding: 100px 0; color: var(--white); background: var(--red); }
 .contact-grid { display: grid; grid-template-columns: .95fr 1fr; gap: 90px; align-items: start; }
 .contact-grid h2 { color: var(--white); margin-bottom: 26px; }
+.contact-grid h2 em { color: var(--ink); }
 .contact-copy p:not(.eyebrow) { max-width: 420px; color: rgba(255,255,255,.85); font-size: .92rem; margin-bottom: 30px; text-transform: none; }
 .contact-list { margin: 0 0 30px; padding: 0; list-style: none; }
 .contact-list li { display: flex; gap: 14px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.28); font-size: .9rem; }
