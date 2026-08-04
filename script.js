@@ -23,12 +23,34 @@ const teaserVideo = document.querySelector('.teaser-video');
 const teaserAudio = document.querySelector('.teaser-audio');
 
 if (soundButton && teaserVideo && teaserAudio) {
+  let userMuted = false;
+
+  const trySound = () => {
+    if (!userMuted && !teaserAudio.ended) teaserAudio.play().catch(() => {});
+  };
+
+  trySound();
+
+  const unlock = () => {
+    trySound();
+    document.removeEventListener('pointerdown', unlock);
+    document.removeEventListener('keydown', unlock);
+  };
+  document.addEventListener('pointerdown', unlock);
+  document.addEventListener('keydown', unlock);
+
+  teaserAudio.addEventListener('ended', () => {
+    soundButton.setAttribute('aria-pressed', 'false');
+  });
+
   soundButton.addEventListener('click', () => {
     const isOn = soundButton.getAttribute('aria-pressed') === 'true';
     if (isOn) {
       teaserAudio.pause();
+      userMuted = true;
       soundButton.setAttribute('aria-pressed', 'false');
     } else {
+      userMuted = false;
       teaserAudio.currentTime = 0;
       teaserAudio.play().catch(() => {});
       soundButton.setAttribute('aria-pressed', 'true');
@@ -37,5 +59,6 @@ if (soundButton && teaserVideo && teaserAudio) {
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) teaserAudio.pause();
+    else trySound();
   });
 }
