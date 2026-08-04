@@ -63,6 +63,13 @@ h1 em, h2 em { color: var(--red); font-style: normal; }
 .teaser { position: relative; z-index: 1; overflow: hidden; aspect-ratio: 21 / 9; background: var(--ink); border-top: 5px solid var(--red); border-bottom: 5px solid var(--red); }
 .teaser-video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .teaser-tag { position: absolute; left: 24px; bottom: 20px; margin: 0; padding: 8px 14px; background: var(--red); color: var(--white); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.teaser-sound { position: absolute; right: 20px; bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 2px solid var(--white); border-radius: 50%; background: rgba(20,20,20,.55); color: var(--white); cursor: pointer; transition: background .2s ease, border-color .2s ease; }
+.teaser-sound:hover, .teaser-sound:focus-visible { background: var(--red); border-color: var(--red); }
+.teaser-sound svg { width: 21px; height: 21px; }
+.teaser-sound .icon-unmuted { display: none; }
+.teaser-sound[aria-pressed="true"] .icon-muted { display: none; }
+.teaser-sound[aria-pressed="true"] .icon-unmuted { display: block; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .hero-logo-frame { margin-top: 8px; border-bottom: 5px solid var(--red); overflow: hidden; background: var(--ink); }
 .hero-logo-frame img { display: block; width: 100%; height: auto; }
 .hero-showcase-cta { display: flex; justify-content: center; padding: 34px 0 44px; }
